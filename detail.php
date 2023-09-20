@@ -1,6 +1,12 @@
 <?php
 session_start();
-$backgroundImage = "me.jpeg";
+$backgroundImage = "uploads/background.jpeg";
+if (isset($_GET['bg'])) {
+    $backgroundImage = $_GET['bg'];
+    
+    $_SESSION['backgroundImage'] = $backgroundImage;
+}
+
 if (isset($_SESSION['backgroundImage'])) {
     $backgroundImage = $_SESSION['backgroundImage'];
 }
@@ -10,119 +16,9 @@ if (isset($_SESSION['backgroundImage'])) {
 <head>
     <title>Detail Catatan Harian</title>
     <link rel="icon" type="uploads/x-icon" href="uploads/favicon1.ico">
+    <link rel="stylesheet" type="text/css" href="style/detail.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-<style>
-        body {
-            font-family:  'Poppins'; 
-            text-align:center;
-            color: #094264;
-            background-image: url("me.jpeg"); 
-            background-image: url("<?php echo $backgroundImage; ?>"); 
-            transition: background-image 0.5s; 
-        }
-
-        .logo {
-            position: absolute;
-            top: 15px;
-            left: 15px; 
-            width: 25px; 
-            height: auto; 
-            z-index: 999; 
-        }
-
-        .header-text {
-            font-size: 14px; 
-            color: #358597; 
-            font-weight: bold;
-            position: absolute;
-            top: 16px;
-            left: 55px;
-        }
-
-        .date {
-            padding: 7px;
-            position: absolute;
-            top: 50px;
-            left: 135px; 
-            width: 90px; 
-            height: auto; 
-            z-index: 999; 
-        }
-
-        .judul {
-            background-color: #EDF2FF;
-            border: 1px solid #fff;
-            padding: 7px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            position: absolute;
-            top: 100px;
-            left: 155px; 
-            width: 250px; 
-            height: auto; 
-            z-index: 999; 
-        }
-
-        .isi {
-            background-color: #EDF2FF;
-            width: 250px;
-            padding: 50px;
-            border: 0px solid #fff;
-            border-radius: 5px;
-            position: absolute;
-            top: 140px;
-            left: 450px; 
-            right: 50px;
-            width: auto; 
-            height: auto;
-            z-index: 999; 
-        }
-
-        select[name="newMood"] {
-            background-color: #EDF2FF;
-            padding: 7px;
-            font-size: 3em;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            position: absolute;
-            top: 185px;
-            left: 150px; 
-            width: 100px; 
-            height: auto; 
-            z-index: 999; 
-        }
-
-        .image {
-            padding: 7px;
-            border-radius: 15px;
-            position: absolute;
-            top: 250px;
-            left: 150px; 
-            width: 250px; 
-            height: auto; 
-            z-index: 999;  
-        }
-
-        .link {
-            background-color: #EDF2FF;
-            border: 1px solid #fff;
-            color: #094264;
-            padding: 5px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 550px;
-            position: absolute;
-            left: 100px;
-            z-index: 999; 
-        }
-
-        .link {
-            text-decoration: none; 
-            color: #094264; 
-        }
-
-</style> 
 <body>
     <?php
     $koneksi = mysqli_connect("localhost", "root","", "diary");
@@ -148,7 +44,7 @@ if (isset($_SESSION['backgroundImage'])) {
             echo "<p class='judul'>$judul</p>";
             echo "<p class='isi'>$isi</p>";
             if (!empty($image)) {
-                echo "<img src='uploads/$image' alt='Gambar Catatan' class='image'>";
+                echo "<img src='data:image/jpeg;base64," . base64_encode($image) . "' alt='Gambar Catatan' class='image'>";
             }
             echo "<a href='beranda.php' class='link'>Kembali ke catatan</a>";
         }else {

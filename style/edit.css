@@ -1,0 +1,118 @@
+body {
+    font-family:  'Poppins'; 
+    text-align:center;
+    color: #094264;
+    background-image: url("<?php echo $backgroundImage; ?>"); 
+    transition: background-image 0.5s; 
+}
+
+.logo {
+    position: absolute;
+    top: 15px;
+    left: 15px; 
+    width: 25px; 
+    height: auto; 
+    z-index: 999; 
+}
+
+.header-text {
+    font-size: 14px; 
+    color: #358597; 
+    font-weight: bold;
+    position: absolute;
+    top: 16px;
+    left: 55px;
+}
+
+input[type="date"] {
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: absolute;
+    cursor: pointer;
+    top: 70px;
+    left: 145px; 
+    width: 90px; 
+    height: auto; 
+    z-index: 999; 
+}
+
+input[type="text"] {
+    background-color: #EDF2FF;
+    border: 1px solid #fff;
+    padding: 7px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: absolute;
+    top: 120px;
+    left: 146px; 
+    width: 250px; 
+    height: auto; 
+    z-index: 999; 
+}
+
+textarea[name="isi"] {
+    background-color: #EDF2FF;
+    width: 250px;
+    padding: 50px;
+    border: 0px solid #fff;
+    border-radius: 5px;
+    position: absolute;
+    top: 140px;
+    left: 500px; 
+    right: 50px;
+    width: 400px; 
+    height: 230px;
+    z-index: 999; 
+}
+
+select[name="newMood"] {
+    background-color: #EDF2FF;
+    padding: 7px;
+    font-size: 3em;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    position: absolute;
+    cursor: pointer;
+    top: 185px;
+    left: 150px; 
+    width: 100px; 
+    height: auto; 
+    z-index: 999; 
+}
+
+.image {
+    padding: 7px;
+    border-radius: 15px;
+    position: absolute;
+    top: 250px;
+    left: 150px; 
+    width: 250px; 
+    height: auto; 
+    z-index: 999;  
+}
+
+input[type="file"] {
+    padding: 7px;
+    border-radius: 10px;
+    position: absolute;
+    cursor: pointer;
+    top: 300px;
+    left: 150px; 
+    width: 200px; 
+    height: auto; 
+    z-index: 999; 
+}
+
+input[type="submit"] {
+    background-color: #EDF2FF;
+    border: 1px solid #fff;
+    color: #094264;
+    padding: 5px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 400px;
+    position: absolute;
+    left: 900px;
+    z-index: 999; 
+}

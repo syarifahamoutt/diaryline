@@ -1,7 +1,10 @@
 <?php
 session_start();
-$backgroundImage = "me.jpeg";
+$backgroundImage = "uploads/background.jpeg";
 
+if (isset($_SESSION['backgroundImage'])) {
+    $backgroundImage = $_SESSION['backgroundImage'];
+}
 if (isset($_SESSION['backgroundImage'])) {
     $backgroundImage = $_SESSION['backgroundImage'];
 }
@@ -9,13 +12,23 @@ if (isset($_SESSION['backgroundImage'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pengaturan</title>
+    <title>Kalender</title>
     <link rel="icon" type="uploads/x-icon" href="uploads/favicon1.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="style/kalender.css">
+
 </head>
+<style>
+            body {
+            font-family: 'poppins'; 
+            text-align:center;
+            color: #094264;
+            background-image: url("uploads/background.jpeg");  
+            background-image: url("<?php echo $backgroundImage; ?>"); 
+            transition: background-image 0.5s; 
+        }
+</style>
 <body>
-    
 <div>
     <img src="sya.png" alt="Logo" class="logo">
     <div class="header-text">

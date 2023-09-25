@@ -1,20 +1,4 @@
-        body {
-            font-family: 'poppins';
-            font-size: 13px;
-            color: #094264;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-image: url('me.jpeg'); 
-            background-size: cover; 
-            background-repeat: no-repeat; 
-            background-attachment: fixed; 
-            background-image: url("<?php echo $backgroundImage; ?>"); 
-            transition: background-image 0.5s; 
-        }
+
 
         .logo {
             position: absolute;

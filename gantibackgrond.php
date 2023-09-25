@@ -6,10 +6,6 @@ if (isset($_GET['bg'])) {
     
     $_SESSION['backgroundImage'] = $backgroundImage;
 }
-
-if (isset($_SESSION['backgroundImage'])) {
-    $backgroundImage = $_SESSION['backgroundImage'];
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,6 +14,16 @@ if (isset($_SESSION['backgroundImage'])) {
     <link rel="icon" type="uploads/x-icon" href="uploads/favicon1.ico">
     <link rel="stylesheet" type="text/css" href="style/ganti.css"> 
 </head>
+<style>
+            body {
+            font-family: 'poppins'; 
+            text-align:center;
+            color: #094264;
+            background-image: url("uploads/background.jpeg");  
+            background-image: url("<?php echo $backgroundImage; ?>"); 
+            transition: background-image 0.5s; 
+        }
+</style>
 <body>
 <div>
     <div class="p">

@@ -1,0 +1,17 @@
+body {
+    font-family: 'poppins'; 
+    text-align:center;
+    color: #094264;
+    background-image: url("../uploads/background.jpeg");  
+    background-image: url("<?php echo $backgroundImage; ?>"); 
+    transition: background-image 0.5s; 
+}
+.link {
+    font-size: 18px;
+    text-decoration: none; 
+    color: #094264; 
+    cursor: pointer;
+    position: absolute;
+    left: 100px;
+    z-index: 999; 
+}

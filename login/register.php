@@ -24,7 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 <?php
 session_start();
-$backgroundImage = "me.jpeg";
+$backgroundImage = "../uploads/background.jpeg";
+if (isset($_GET['bg'])) {
+    $backgroundImage = $_GET['bg'];
+    
+    $_SESSION['backgroundImage'] = $backgroundImage;
+}
+
 if (isset($_SESSION['backgroundImage'])) {
     $backgroundImage = $_SESSION['backgroundImage'];
 }
@@ -36,6 +42,24 @@ if (isset($_SESSION['backgroundImage'])) {
     <link rel="icon" type="uploads/x-icon" href="../uploads/favicon1.ico">
     <link rel="stylesheet" type="text/css" href="../style/register.css">
 </head>
+<style>
+            body {
+            font-family: poppins;
+            color: #094264;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('../uploads/background.jpeg'); 
+            background-size: cover; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+            background-image: url("<?php echo $backgroundImage; ?>"); 
+            transition: background-image 0.5s; 
+        }
+</style>
 <body>
 <div>
     <img src="../uploads/logo.png" alt="Logo" class="logo">

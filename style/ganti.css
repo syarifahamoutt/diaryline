@@ -1,11 +1,3 @@
-        body {
-            font-family: 'poppins'; 
-            text-align:center;
-            color: #094264;
-            background-image: url("<?php echo $backgroundImage; ?>"); 
-            transition: background-image 0.5s; 
-        }
-
         .p {
             position: absolute;
             top: 25px;

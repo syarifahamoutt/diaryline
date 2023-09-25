@@ -1,6 +1,11 @@
 <?php
 session_start();
 $backgroundImage = "../uploads/background.jpeg";
+if (isset($_GET['bg'])) {
+    $backgroundImage = $_GET['bg'];
+    
+    $_SESSION['backgroundImage'] = $backgroundImage;
+}
 
 if (isset($_SESSION['backgroundImage'])) {
     $backgroundImage = $_SESSION['backgroundImage'];
@@ -54,6 +59,132 @@ if (isset($_GET['iddiary'])) {
     <link rel="icon" type="uploads/x-icon" href="../uploads/favicon1.ico">
     <link rel="stylesheet" type="text/css" href="../style/edit.css">
 </head> 
+<style>
+            body {
+            font-family: 'poppins'; 
+            text-align:center;
+            color: #094264;
+            background-image: url("../uploads/background.jpeg");  
+            background-image: url("<?php echo $backgroundImage; ?>"); 
+            transition: background-image 0.5s; 
+        }
+        
+
+        .logo {
+            position: absolute;
+            top: 15px;
+            left: 15px; 
+            width: 35px; 
+            height: auto; 
+            z-index: 999; 
+        }
+
+        .header-text {
+            font-size: 20px; 
+            color: #358597; 
+            font-weight: bold;
+            position: absolute;
+            top: 8px;
+            padding: 10px;
+            left: 55px;
+        }
+
+        input[type="date"] {
+            background-color: #EDF2FF;
+            font-size: 14px;
+            position: absolute;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            top: 80px;
+            left: 135px; 
+            width: 150px; 
+            height: 30px; 
+            z-index: 999; 
+        }
+
+        input[type="text"] {
+            font-size: 15px;
+            background-color: #EDF2FF;
+            padding: 7px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            position: absolute;
+            top: 150px;
+            left: 155px; 
+            width: 250px; 
+            height: auto; 
+            z-index: 999; 
+        }
+
+        textarea[name="isi"] {
+            background-color: #EDF2FF;
+            width: 250px;
+            padding: 50px;
+            border: 0px solid #ccc;
+            border-radius: 5px;
+            position: absolute;
+            font-size: 14px;
+            top: 240px;
+            left: 600px; 
+            right: 50px;
+            width: 450px; 
+            height: 250px;
+            z-index: 999; 
+        }
+
+        select[name="newMood"] {
+            background-color: #EDF2FF;
+            padding: 7px;
+            font-size: 4em;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            position: absolute;
+            cursor: pointer;
+            top: 240px;
+            left: 150px; 
+            width: 120px; 
+            height: auto; 
+            z-index: 999; 
+        }
+
+        .image {
+            padding: 7px;
+            border-radius: 15px;
+            position: absolute;
+            top: 350px;
+            left: 150px; 
+            width: 250px; 
+            height: auto; 
+            z-index: 999;  
+        }
+
+        input[type="file"] {
+            padding: 7px;
+            border-radius: 10px;
+            position: absolute;
+            cursor: pointer;
+            top:400px;
+            left: 150px; 
+            width: 250px; 
+            height: auto; 
+            z-index: 999; 
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background-color: #EDF2FF;
+            border: 1px solid #fff;
+            color: #094264;
+            padding: 5px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 530px;
+            position: absolute;
+            left: 1050px;
+            z-index: 999; 
+            font-size: 14px;
+        }
+</style>     
 <body>
     <form action="editcatatan.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="iddiary" value="<?php echo $iddiary; ?>">
@@ -70,12 +201,6 @@ if (isset($_GET['iddiary'])) {
         <option value="terkejut" <?php if ($mood == "terkejut") echo "selected"; ?>> &#x1F631</option>
         </select><br>
 
-        <?php
-        if (!empty($image)) {
-            echo "<img src='uploads/$image' alt='Gambar' class='image'><br>";
-        }
-        ?>
-        <input type="file" name="new_image"><br>
 
         <input type="submit" value="Simpan">
     </form>

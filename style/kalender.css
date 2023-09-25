@@ -1,11 +1,4 @@
-        body {
-            font-family:  'Poppins'; 
-            text-align:center;
-            color: #094264;
-            background-image: url("me.jpeg"); 
-            background-image: url("<?php echo $backgroundImage; ?>"); 
-            transition: background-image 0.5s; 
-        }
+
 
         .logo {
             position: absolute;

@@ -342,7 +342,7 @@ if (isset($_SESSION['backgroundImage'])) {
         $keyword = $_GET['cari'];
         $query = "SELECT * FROM catatan WHERE judul LIKE '%$keyword%'";
     } else {
-        $query = "SELECT * FROM catatan";
+        $query = "SELECT * FROM catatan ORDER BY iddiary DESC";
     }
     
     $result = mysqli_query($koneksi, $query);
